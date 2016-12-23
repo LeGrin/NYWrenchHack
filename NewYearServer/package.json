@@ -1,0 +1,18 @@
+{
+  "name": "newyearserver",
+  "version": "1.0.0",
+  "description": "A server to get notifications from pebble and send actions to iphones",
+  "main": "RestfullPush.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "itunes-api-search": "^1.0.3"
+  },
+  "devDependencies": {
+    "express": "^4.14.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "LeGrin",
+  "license": "ISC"
+}
