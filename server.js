@@ -4,7 +4,7 @@ var port = process.env.port || 3001;
 
 var logs = [];
 
-var actions = {'D':[],'I':[]};
+var actions = {};
 
 var app = express();
 app.get('/', function(req, res) {
@@ -28,6 +28,7 @@ app.get('/api/pebble', function(req, res) {
   var id = req.param('id') || 0; 
   var target = req.param('target');
   var response = createJson(type,id);
+  if (!actions[target]) actions[target] = [];
   actions[target][actions[target].length] = response;
   log(device,type,id);
   console.log(actions);
@@ -39,6 +40,7 @@ app.get('/api/iphone',function(req,res){
     var response = '';
     if (actions[device].length > 0){ response = actions[device].pop();}
     else { response = "{'error':'there's no actions for this device}";}
+    logs.push("Device with id: " + device + "got response");
     console.log(response);
     res.send(response);
 });
