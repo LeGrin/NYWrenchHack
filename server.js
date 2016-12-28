@@ -32,7 +32,7 @@ app.get('/api/pebble', function(req, res) {
   actions[target][actions[target].length] = response;
   log(device,type,id);
   console.log(actions);
-  res.send("OK. Action #" + actions[target].length + " in list for " + target);
+  res.json("OK. Action #" + actions[target].length + " in list for " + target);
 });
 
 app.get('/api/iphone',function(req,res){
@@ -42,7 +42,7 @@ app.get('/api/iphone',function(req,res){
     else { response = "{'error':'there's no actions for this device}";}
     logs.push( (new Date().toTimeString()) + ": Device with id: " + device + "got response");
     console.log(response);
-    res.send(response);
+    res.json(response);
 });
 
 
@@ -51,7 +51,7 @@ app.get('/AudioTest', function(req, res) {
     var json = "{'type': 'audio','id': '915794179'}";
     var time = new Date().toTimeString();
     logs.push(time + ": AudioTest was called");
-    res.send(json);
+    res.json(json);
 });
 
 app.get('/PlaylistTest', function(req, res) {
@@ -67,7 +67,7 @@ app.get('/Pause', function(req, res) {
     var json = "{'type': 'pause'}";
     var time = new Date().toTimeString();
     logs.push(time + ": Pause was called");
-    res.send(json);
+    res.json(json);
 });
 
 app.get('/VideoTest', function(req, res) {
@@ -75,7 +75,7 @@ app.get('/VideoTest', function(req, res) {
     var json = "{'type': 'video','id': 'PLEJ974BqZEiO0aXH2v4aXYxDQckyICi9P'}";
     var time = new Date().toTimeString();
     logs.push(time + ": VideoTest was called");
-    res.send(json);
+    res.json(json);
 });
 
 app.get('/log', function(req, res) {
