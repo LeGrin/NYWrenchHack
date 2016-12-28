@@ -59,7 +59,7 @@ app.get('/PlaylistTest', function(req, res) {
     var json = "{'type': 'playlist','id': 'krutota/idpl.a947d43ee3944e8f999bfdff53b8bf53'}";
     var time = new Date().toTimeString();
     logs.push(time + ": PlaylistTest was called");
-    res.send(json);
+    res.json(json);
 });
 
 app.get('/Pause', function(req, res) {
