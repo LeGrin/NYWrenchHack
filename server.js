@@ -39,8 +39,8 @@ app.get('/api/iphone',function(req,res){
     var device = req.param("dev");
     var response = '';
     if (actions[device] && actions[device].length > 0){ response = actions[device].pop();}
-    else { response = "{'error':'there's no actions for this device}";}
-    logs.push( (new Date().toTimeString()) + ": Device with id: " + device + "got response");
+    else { response = "{'error':'there is no actions for this device}";}
+    logs.push( (new Date().toTimeString()) + ": Device with id: " + device + " got response");
     console.log(response);
     res.json(response);
 });
