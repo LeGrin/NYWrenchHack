@@ -19,8 +19,8 @@ var log = function(device,type,id){
 
 var createJson = function(typejson, id){
     var obj = {};
-    obj.type = typejson;
-    obj.id = id;
+    obj["type"] = typejson;
+    obj["id"] = id;
     return JSON.stringify(obj);
 }
 
@@ -41,7 +41,7 @@ app.get('/api/iphone',function(req,res){
     var device = req.param("dev");
     var response = '';
     if (actions[device] && actions[device].length > 0){ response = actions[device].pop();}
-    else { response = JSON.stringify({error:'there is no actions for this device'});}
+    else { response = JSON.stringify({"error":'there is no actions for this device'});}
     logs.push( (new Date().toTimeString()) + ": Device with id: " + device + " got response");
     console.log(response);
     res.json(response);
